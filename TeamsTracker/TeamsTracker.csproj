@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<OutputType>WinExe</OutputType>
+	<TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>icons8-room-finder-256.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="icons8-room-finder-256.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="icons8-room-finder-256.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="icons8-room-finder-256.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,50 @@
+﻿<Window x:Class="QuickEntry.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuickEntry"
+        mc:Ignorable="d"
+        Title="Settings" Width="472" Height="305" Topmost="True" ShowInTaskbar="False">
+    <Window.Resources>
+        <local:TaskConverter x:Key="TaskConverter"></local:TaskConverter>
+    </Window.Resources>
+    <DockPanel UseLayoutRounding="False" LastChildFill="False">
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75" />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <Label Content="eMail:"/>
+                <Label Content="URL:"/>
+
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBox x:Name="Email" TextWrapping="Wrap" Text="" Margin="0,5,5,5" />
+                <TextBox x:Name="CrmURL" TextWrapping="Wrap" Text="" Margin="0,5,5,5" />
+
+            </StackPanel>
+
+        </Grid>
+        <Grid DockPanel.Dock="Top">
+            <DataGrid x:Name="RuleGrid" AutoGenerateColumns="False">
+                <DataGrid.Columns >
+
+                    <DataGridTextColumn Width="33*" Header="Meeting" Binding="{Binding MeetingName}"  />
+                    <DataGridComboBoxColumn Width="33*" Header="Project" x:Name="Project" SelectedValueBinding="{Binding Project,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <DataGridTemplateColumn Width="33*" x:Name="Tasks" Header="Task">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox x:Name="TaskCombo"  ItemsSource="{Binding Project, Converter={StaticResource TaskConverter}}" SelectedItem="{Binding Task}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+        <Button DockPanel.Dock="Bottom" Content="Save" Height="20" Margin="5,5,5,5" Click="On_Save" />
+    </DockPanel>
+
+</Window>

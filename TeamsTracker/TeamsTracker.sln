@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamsTracker", "TeamsTracker.csproj", "{C937FE08-44EE-444F-9FAB-C5B43084C856}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickEntry", "..\QuickEntry\QuickEntry.csproj", "{2D862AF6-0110-4F20-BF15-8BC815C8EA52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C937FE08-44EE-444F-9FAB-C5B43084C856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C937FE08-44EE-444F-9FAB-C5B43084C856}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C937FE08-44EE-444F-9FAB-C5B43084C856}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C937FE08-44EE-444F-9FAB-C5B43084C856}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D862AF6-0110-4F20-BF15-8BC815C8EA52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D862AF6-0110-4F20-BF15-8BC815C8EA52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D862AF6-0110-4F20-BF15-8BC815C8EA52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D862AF6-0110-4F20-BF15-8BC815C8EA52}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB6A1EBF-0B4E-42A0-A57F-5A1C8BBE32B2}
+	EndGlobalSection
+EndGlobal
