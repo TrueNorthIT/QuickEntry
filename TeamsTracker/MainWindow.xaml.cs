@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -12,14 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Automation;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
+
 
 namespace TeamsTracker
 {
@@ -66,6 +58,10 @@ namespace TeamsTracker
     /// </summary>
     public partial class MainWindow : Window , INotifyPropertyChanged  
     {
+        private CacheManager cache;
+        private string exePath;
+        private string argsString;
+
         public event PropertyChangedEventHandler? PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
@@ -94,6 +90,13 @@ namespace TeamsTracker
         {
 
             InitializeComponent();
+
+
+            var cachePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeamsTracker");
+            cache = new CacheManager(cachePath);
+
+            cache.TryReadCache("exe.txt", out exePath);
+            cache.TryReadCache("args.txt", out argsString);
 
 
             var debugTB = new TextBoxStreamWriter(debugOut);
@@ -146,21 +149,34 @@ namespace TeamsTracker
                         Console.WriteLine($"MEETING ENDED!");
                         consoleTB.WriteLine($"Meeting: {meetingName} ended. {GetMeetingTime(stopWatch.Elapsed)}");
 
-
-                        using (Process pProcess = new Process())
+                        if (exePath != null & exePath != "") 
                         {
-                            pProcess.StartInfo.FileName = @"C:\Users\Joe\source\repos\Personal\TeamsTracker\QuickEntry\bin\Release\QuickEntry.exe";
-                            pProcess.StartInfo.Arguments = $"-name \"{meetingName}\" -time {Math.Ceiling(stopWatch.Elapsed.TotalMinutes)}"; //argument
+                            using Process pProcess = new Process();
+                            pProcess.StartInfo.FileName = exePath;
+
+                            if (argsString != null & argsString != "")
+                            {
+                                argsString = argsString.Replace("{time}", Math.Ceiling(stopWatch.Elapsed.TotalMinutes).ToString());
+                                argsString = argsString.Replace("{name}", meetingName);
+                                pProcess.StartInfo.Arguments = argsString;
+                            }
                             pProcess.StartInfo.UseShellExecute = false;
                             pProcess.Start();
+
                         }
 
-                  
+
+
                     }
                 });
             });
 
         }
 
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            var settingsDialog = new Settings();
+            settingsDialog.ShowDialog();
+        }
     }
 }

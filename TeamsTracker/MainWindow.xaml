@@ -5,24 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamsTracker"
         mc:Ignorable="d"
-        Title="TeamsTracker" Height="335" Width="209" Icon="/icons8-room-finder-256.png">
-    <Grid Margin="0,0,0,1">
+        Title="TeamsTracker" Height="427" Width="272" Icon="/icons8-room-finder-256.png">
+    <Grid>
+        <DockPanel Height="30" Grid.RowSpan="1" VerticalAlignment="Top" Panel.ZIndex="10" Grid.ColumnSpan="2">
+            <Label Content="Running..." Width="62" Margin="10,0,0,0"/>
+            <Button Content="Settings" Click="Settings_Click" Width="47" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0"/>
 
-        <Label Content="Running..." HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="outputSelector" Margin="10,30,10,30" Grid.ColumnSpan="2" Height="20" VerticalAlignment="Top">
-            <ComboBoxItem Tag="Output">Output</ComboBoxItem>
-            <ComboBoxItem Tag="Debug">DEBUG</ComboBoxItem>
+        </DockPanel>
+
+        <ComboBox x:Name="outputSelector" Margin="10,30,10,0" Grid.ColumnSpan="2" Height="20" VerticalAlignment="Top">
+            <ComboBoxItem Tag="Output" Content="Output"/>
+            <ComboBoxItem Tag="Debug" Content="DEBUG"/>
 
         </ComboBox>
 
         <TextBox x:Name="consoleOut" AcceptsReturn="True" TextWrapping="Wrap" Margin="10,50,10,10" IsEnabled="False" Grid.ColumnSpan="2">
             <TextBox.Style>
                 <Style>
-                    <Setter Property="TextBox.Visibility" Value="Collapsed"></Setter>
+                    <Setter Property="UIElement.Visibility" Value="Collapsed"/>
                     <Style.Triggers>
                         <DataTrigger  
-                        Binding="{Binding ElementName=outputSelector, Path=SelectedItem.Tag}" Value="Output">
-                            <Setter Property="Label.Visibility" Value="Visible"></Setter>
+                        Binding="{Binding SelectedItem.Tag, ElementName=outputSelector}" Value="Output">
+                            <Setter Property="UIElement.Visibility" Value="Visible"/>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
@@ -31,11 +35,11 @@
         <TextBox x:Name="debugOut" AcceptsReturn="True" TextWrapping="Wrap" Margin="10,50,10,10"  IsEnabled="False" Grid.ColumnSpan="2">
             <TextBox.Style>
                 <Style>
-                    <Setter Property="TextBox.Visibility" Value="Collapsed"></Setter>
+                    <Setter Property="UIElement.Visibility" Value="Collapsed"/>
                     <Style.Triggers>
                         <DataTrigger  
-                        Binding="{Binding ElementName=outputSelector, Path=SelectedItem.Tag}" Value="Debug">
-                            <Setter Property="Label.Visibility" Value="Visible"></Setter>
+                        Binding="{Binding SelectedItem.Tag, ElementName=outputSelector}" Value="Debug">
+                            <Setter Property="UIElement.Visibility" Value="Visible"/>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>

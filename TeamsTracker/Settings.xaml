@@ -1,0 +1,18 @@
+﻿<Window x:Class="TeamsTracker.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TeamsTracker"
+        mc:Ignorable="d"
+        Title="Settings" Height="161" Width="427" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Label Content="Teams tracker can launch another program when a teams meeting ends" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Excecutable:" HorizontalAlignment="Left" Margin="16,36,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="exe" HorizontalAlignment="Left" Margin="96,40,0,0" TextWrapping="Wrap" Text="C:/Path/To/Exe" VerticalAlignment="Top" Width="304" />
+        <Label Content="Arguments (Use {time} and {name})" HorizontalAlignment="Left" Margin="16,62,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="args" HorizontalAlignment="Left" Margin="210,66,0,0" TextWrapping="Wrap" Text="-name {name} -time {time}" VerticalAlignment="Top" Width="190"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="371,89,0,0" VerticalAlignment="Top" Click="Save_Click"/>
+
+    </Grid>
+</Window>
