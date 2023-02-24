@@ -20,3 +20,7 @@ C:\Users\Joe\source\repos\Personal\TeamsTracker\TeamsTracker\obj\Release\net7.0-
 C:\Users\Joe\source\repos\Personal\TeamsTracker\TeamsTracker\obj\Release\net7.0-windows\TeamsTracker.genruntimeconfig.cache
 C:\Users\Joe\source\repos\Personal\TeamsTracker\TeamsTracker\obj\Release\net7.0-windows\ref\TeamsTracker.dll
 C:\Users\Joe\source\repos\Personal\TeamsTracker\TeamsTracker\obj\Release\net7.0-windows\TeamsTracker_Content.g.cs
+C:\Users\Joe\source\repos\Personal\TeamsTracker\TeamsTracker\bin\Release\net7.0-windows\Newtonsoft.Json.dll
+C:\Users\Joe\source\repos\Personal\TeamsTracker\TeamsTracker\obj\Release\net7.0-windows\Settings.g.cs
+C:\Users\Joe\source\repos\Personal\TeamsTracker\TeamsTracker\obj\Release\net7.0-windows\Settings.baml
+C:\Users\Joe\source\repos\Personal\TeamsTracker\TeamsTracker\obj\Release\net7.0-windows\TeamsTracker.csproj.CopyComplete
