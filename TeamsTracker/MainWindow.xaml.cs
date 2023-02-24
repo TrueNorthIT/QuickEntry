@@ -177,6 +177,8 @@ namespace TeamsTracker
         {
             var settingsDialog = new Settings();
             settingsDialog.ShowDialog();
+            cache.TryReadCache("exe.txt", out exePath);
+            cache.TryReadCache("args.txt", out argsString);
         }
     }
 }
