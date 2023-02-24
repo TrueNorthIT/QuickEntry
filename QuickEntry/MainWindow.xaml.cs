@@ -196,7 +196,7 @@ namespace QuickEntry
             #endregion
 
             Time.Text = mins == "" || mins == null ? "0" : mins;
-            Title.Text = meetingName;
+            if (meetingName != null && meetingName != "") Title.Text = meetingName;
             SetTimeLabel();
 
             // Finally, let's check the rules
