@@ -109,8 +109,8 @@ namespace TeamsTracker
             Automation.AddAutomationEventHandler(WindowPattern.WindowOpenedEvent, AutomationElement.RootElement, TreeScope.Children, (sender, e) =>
             {
                 var element = (AutomationElement)sender;
-                if (trackedWindows.Contains(element.Current.NativeWindowHandle)) return;
-                trackedWindows.Add(element.Current.NativeWindowHandle);
+                if (trackedWindows.Contains((IntPtr)element.Current.NativeWindowHandle)) return;
+                trackedWindows.Add((IntPtr)element.Current.NativeWindowHandle);
                 var name = element.Current.Name;
                 string? fullName = null;
                 string? meetingName = null;
@@ -126,7 +126,7 @@ namespace TeamsTracker
                 Task.Factory.StartNew(() =>
                 {
                     Thread.Sleep(5000);
-                    fullName = GetWindowTitle(element.Current.NativeWindowHandle);
+                    fullName = GetWindowTitle((IntPtr)element.Current.NativeWindowHandle);
                     Console.WriteLine($"Full title = {fullName}");
                     if (fullName.Contains("| Microsoft Teams"))
                     {
@@ -141,7 +141,7 @@ namespace TeamsTracker
 
                 Automation.AddAutomationEventHandler(WindowPattern.WindowClosedEvent, element, TreeScope.Element, (s, e2) =>
                 {
-                    trackedWindows.Remove(element.Current.NativeWindowHandle);
+                    trackedWindows.Remove((IntPtr)element.Current.NativeWindowHandle);
                     Console.WriteLine("close: " + fullName == null ? name : fullName + " hwnd:" + element.Current.NativeWindowHandle);
                     if (isMeeting)
                     {

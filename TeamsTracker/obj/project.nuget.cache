@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "n6tiGoqPcg5PqqNrQhMzDspiqsiX93uvao9HOvRErUERG19pgHHHsxuYq5Ei/+gmk6mSacGLCBNh4cUGnuHuLA==",
+  "dgSpecHash": "Pb/j2C6UtKwn3BELN5wBiY0r5lM4KDBLGlvwdV+qPHc4OW4Y5SFGgF0EayxJKE4ed2Cbf8td/SUOKIqo7AcNKw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Joe\\source\\repos\\Personal\\TeamsTracker\\TeamsTracker\\TeamsTracker.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Joe\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+    "C:\\Users\\Joe\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\Joe\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Joe\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Joe\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Joe\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
   ],
   "logs": []
 }
