@@ -4,7 +4,6 @@
     <StartArguments>-name "SQT - Scrum"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <StartArguments>
-    </StartArguments>
+    <StartArguments>-name "Daily"</StartArguments>
   </PropertyGroup>
 </Project>

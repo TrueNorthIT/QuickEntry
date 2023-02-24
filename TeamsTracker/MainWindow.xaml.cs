@@ -147,6 +147,7 @@ namespace TeamsTracker
                     {
                         stopWatch.Stop();
                         Console.WriteLine($"MEETING ENDED!");
+                        meetingName = "Test Meeting";
                         consoleTB.WriteLine($"Meeting: {meetingName} ended. {GetMeetingTime(stopWatch.Elapsed)}");
 
                         if (exePath != null & exePath != "") 
@@ -157,7 +158,7 @@ namespace TeamsTracker
                             if (argsString != null & argsString != "")
                             {
                                 argsString = argsString.Replace("{time}", Math.Ceiling(stopWatch.Elapsed.TotalMinutes).ToString());
-                                argsString = argsString.Replace("{name}", meetingName);
+                                argsString = argsString.Replace("{name}", $"\"{meetingName}\"");
                                 pProcess.StartInfo.Arguments = argsString;
                             }
                             pProcess.StartInfo.UseShellExecute = false;

@@ -192,7 +192,7 @@ namespace QuickEntry
             {
                 var settings = new Settings();
                 settings.ShowDialog();
-            }; 
+            };
             #endregion
 
             Time.Text = mins == "" || mins == null ? "0" : mins;
@@ -201,29 +201,32 @@ namespace QuickEntry
 
             // Finally, let's check the rules
 
-            MeetingRule matchedRule = meetingRules.Where(MeetingRule => MeetingRule.MeetingName.Trim() == meetingName.Trim()).FirstOrDefault();
-            if (matchedRule != null)
+            if (meetingName != null)
             {
-                for (int i = 0; i < Project.Items.Count; i++)
+                MeetingRule matchedRule = meetingRules.Where(MeetingRule => MeetingRule.MeetingName.Trim() == meetingName.Trim()).FirstOrDefault();
+                if (matchedRule != null)
                 {
-                    object item = Project.Items[i];
-                    if (new Guid(((ComboBoxItem)item).Uid) == matchedRule.Project.id)
+                    for (int i = 0; i < Project.Items.Count; i++)
                     {
-                        Project.SelectedIndex = i;
-                        PopulateTasks();
-                        break;
+                        object item = Project.Items[i];
+                        if (new Guid(((ComboBoxItem)item).Uid) == matchedRule.Project.id)
+                        {
+                            Project.SelectedIndex = i;
+                            PopulateTasks();
+                            break;
+                        }
                     }
-                }
-                for (int i = 0; i < Task.Items.Count; i++)
-                {
-                    object item = Task.Items[i];
-                    if (new Guid(((ComboBoxItem)item).Uid) == matchedRule.Task.id)
+                    for (int i = 0; i < Task.Items.Count; i++)
                     {
-                        Task.SelectedIndex = i;
-                        break;
+                        object item = Task.Items[i];
+                        if (new Guid(((ComboBoxItem)item).Uid) == matchedRule.Task.id)
+                        {
+                            Task.SelectedIndex = i;
+                            break;
+                        }
                     }
-                }
 
+                }
             }
         }
 
